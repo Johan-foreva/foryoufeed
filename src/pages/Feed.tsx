@@ -20,7 +20,7 @@ const Feed = () => {
     const [feed, setFeed] = usePersistentState<StatusType[]>([], user.id + "feed"); //feed to display
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(true); //
-    const [records, setRecords] = usePersistentState<number>(20, user.id + "records"); //how many records to show
+    const [records, setRecords] = usePersistentState<number>(200, user.id + "records"); //how many records to show
     const [scrollPos, setScrollPos] = usePersistentState<number>(0, user.id + "scroll"); //scroll position
     const [weights, setWeights] = useState<weightsType>({}); //weights for each factor
     const [filteredLanguages, setFilteredLanguages] = useState<string[]>(["en", "de"]); //languages to filter
@@ -101,7 +101,7 @@ const Feed = () => {
         if (records < feed.length) {
             console.log("load more")
             console.log(records)
-            setRecords(records + 10)
+            setRecords(records + 50)
         }
     }
 
